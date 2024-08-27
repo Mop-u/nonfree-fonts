@@ -9,11 +9,6 @@
         let
             pkgs = nixpkgs.legacyPackages.${system};
         in { 
-            defaultPackage = pkgs.symlinkJoin {
-                name = "moppu-fonts-0.0.0";
-                paths = builtins.attrValues
-                    self.packages.${system}; # Add font derivation names here
-            };
             packages.comic-code = pkgs.stdenvNoCC.mkDerivation {
                 name = "comic-code";
                 dontConfigure = true;
